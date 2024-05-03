@@ -189,11 +189,10 @@ template:
   spec:
     containers:
       - name: runner
-        image: insightecomtest.azurecr.io/arc-runner-image:latest
+        image: insightecomtest.azurecr.io/runner:latest
         pullPolicy: "Always"
         command: ["/home/runner/run.sh"]
-    ImagePullSecrets:
-      -name: acr-cred    
+        imagePullPolicy: "acr-cred"
 
 ## Optional controller service account that needs to have required Role and RoleBinding
 ## to operate this gha-runner-scale-set installation.
